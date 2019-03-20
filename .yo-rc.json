@@ -1,0 +1,38 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.poseidon",
+      "nativeLanguage": "en"
+    },
+    "jhipsterVersion": "5.8.2",
+    "applicationType": "gateway",
+    "baseName": "apigateway",
+    "packageName": "com.poseidon",
+    "packageFolder": "com/poseidon",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "gradle",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "NTRiZWY2NzkyMGU0NTJlMTJjNjZkNDM1MjdjODFkMDI3MDY4MmE0ZDIxYjMyODQ4MjEyYzZhYTM5NDZlNjcyZGFkOGI2ODFlYmIyNjgyYTk2ZGNkODM2ZmQ0OGRiN2U2YTQ2NGQxYWI4NWNkM2E4NDI4NTA5ZmI4NGNkN2ZjZmI=",
+    "clientFramework": "react",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "en",
+    "languages": ["en", "tr"]
+  }
+}
