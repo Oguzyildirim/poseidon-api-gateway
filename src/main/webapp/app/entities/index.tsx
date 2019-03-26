@@ -4,12 +4,20 @@ import { Switch } from 'react-router-dom';
 // tslint:disable-next-line:no-unused-variable
 import ErrorBoundaryRoute from 'app/shared/error/error-boundary-route';
 
+import Company from './company';
+import Ship from './ship';
+import ProductOrder from './product-order';
+import OrderItem from './order-item';
 /* jhipster-needle-add-route-import - JHipster will add routes here */
 
 const Routes = ({ match }) => (
   <div>
     <Switch>
       {/* prettier-ignore */}
+      <ErrorBoundaryRoute path={`${match.url}/company`} component={Company} />
+      <ErrorBoundaryRoute path={`${match.url}/ship`} component={Ship} />
+      <ErrorBoundaryRoute path={`${match.url}/product-order`} component={ProductOrder} />
+      <ErrorBoundaryRoute path={`${match.url}/order-item`} component={OrderItem} />
       {/* jhipster-needle-add-route-path - JHipster will routes here */}
     </Switch>
   </div>

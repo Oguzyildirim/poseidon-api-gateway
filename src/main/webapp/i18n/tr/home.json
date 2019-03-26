@@ -1,7 +1,7 @@
 {
   "home": {
-    "title": "Merhaba, Java Hipster!",
-    "subtitle": "Burası Ana Sayfanız",
+    "title": "Poseidona, hoşgeldiniz!",
+    "subtitle": "Ana Sayfanız",
     "logged": {
       "message": "\"{{username}}\" olarak giriş yaptınız."
     },

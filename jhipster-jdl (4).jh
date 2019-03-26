@@ -1,0 +1,59 @@
+
+entity Company {
+    name String required
+    email String required pattern(/^[^@\s]+@[^@\s]+\.[^@\s]+$/)
+    phone String required
+    addressLine1 String 
+    addressLine2 String
+    city String 
+    country String 
+}
+
+entity Ship {
+    shipId BigDecimal required
+    firstName String 
+    lastName String 
+    gender Gender 
+    email String required pattern(/^[^@\s]+@[^@\s]+\.[^@\s]+$/)
+    phone String required
+    addressLine1 String 
+    addressLine2 String 
+    city String 
+    country String 
+}
+
+enum Gender {
+    MALE, FEMALE, OTHER
+}
+
+entity ProductOrder {
+    placedDate Instant required
+    status OrderStatus required
+    code String required
+}
+
+enum OrderStatus {
+    COMPLETED, PENDING, CANCELLED
+}
+
+entity OrderItem {
+    quantity Integer required min(0)
+}
+
+relationship OneToOne {
+    Ship{user(login) required} to User
+    Company{user(login) required} to User
+}
+
+
+relationship OneToMany {
+   Ship{order} to ProductOrder{ship(email) required},
+   ProductOrder{orderItem} to OrderItem{order(code) required},
+   Company{ship} to Ship{company(email) required}
+}
+
+
+service * with serviceClass
+paginate Company, Ship, ProductOrder, OrderItem with pagination
+
+filter *

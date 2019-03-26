@@ -1,0 +1,20 @@
+import { Moment } from 'moment';
+import { IOrderItem } from 'app/shared/model/order-item.model';
+import { IShip } from 'app/shared/model/ship.model';
+
+export const enum OrderStatus {
+  COMPLETED = 'COMPLETED',
+  PENDING = 'PENDING',
+  CANCELLED = 'CANCELLED'
+}
+
+export interface IProductOrder {
+  id?: number;
+  placedDate?: Moment;
+  status?: OrderStatus;
+  code?: string;
+  orderItems?: IOrderItem[];
+  ship?: IShip;
+}
+
+export const defaultValue: Readonly<IProductOrder> = {};
