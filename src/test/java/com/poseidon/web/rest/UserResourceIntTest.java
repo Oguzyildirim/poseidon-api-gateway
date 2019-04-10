@@ -10,7 +10,6 @@ import com.poseidon.service.UserService;
 import com.poseidon.service.dto.UserDTO;
 import com.poseidon.service.mapper.UserMapper;
 import com.poseidon.web.rest.errors.ExceptionTranslator;
-import com.poseidon.web.rest.vm.ManagedUserVM;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Before;
 import org.junit.Test;

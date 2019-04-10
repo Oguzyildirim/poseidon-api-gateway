@@ -10,8 +10,8 @@ import com.poseidon.service.dto.PasswordChangeDTO;
 import com.poseidon.service.dto.UserDTO;
 import com.poseidon.web.rest.errors.*;
 import com.poseidon.web.rest.vm.KeyAndPasswordVM;
-import com.poseidon.web.rest.vm.ManagedUserVM;
 
+import com.poseidon.web.rest.vm.ManagedUserVM;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -52,7 +52,7 @@ public class AccountResource {
      * @throws EmailAlreadyUsedException 400 (Bad Request) if the email is already used
      * @throws LoginAlreadyUsedException 400 (Bad Request) if the login is already used
      */
-    @PostMapping("/register")
+    @PostMapping("/registerUser")
     @ResponseStatus(HttpStatus.CREATED)
     public void registerAccount(@Valid @RequestBody ManagedUserVM managedUserVM) {
         if (!checkPasswordLength(managedUserVM.getPassword())) {

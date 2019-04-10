@@ -1,8 +1,11 @@
 package com.poseidon.repository;
 
 import com.poseidon.domain.Company;
+import com.poseidon.domain.User;
 import org.springframework.data.jpa.repository.*;
 import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
 
 
 /**
@@ -11,5 +14,7 @@ import org.springframework.stereotype.Repository;
 @SuppressWarnings("unused")
 @Repository
 public interface CompanyRepository extends JpaRepository<Company, Long>, JpaSpecificationExecutor<Company> {
+
+    Optional<Company> findOneByUser(Optional<User> user);
 
 }

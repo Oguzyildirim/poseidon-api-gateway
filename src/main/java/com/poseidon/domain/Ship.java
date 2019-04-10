@@ -1,7 +1,6 @@
 package com.poseidon.domain;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -12,6 +11,7 @@ import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 import java.util.Objects;
 
@@ -47,11 +47,6 @@ public class Ship implements Serializable {
     private Gender gender;
 
     @NotNull
-    @Pattern(regexp = "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$")
-    @Column(name = "email", nullable = false)
-    private String email;
-
-    @NotNull
     @Column(name = "phone", nullable = false)
     private String phone;
 
@@ -67,8 +62,8 @@ public class Ship implements Serializable {
     @Column(name = "country")
     private String country;
 
-    @OneToOne(optional = false)    @NotNull
-
+    @OneToOne(optional = false)
+    @NotNull
     @JoinColumn(unique = true)
     private User user;
 
@@ -141,18 +136,6 @@ public class Ship implements Serializable {
         this.gender = gender;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public Ship email(String email) {
-        this.email = email;
-        return this;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     public String getPhone() {
         return phone;
@@ -266,7 +249,7 @@ public class Ship implements Serializable {
         return this;
     }
 
-    public void setCompany(Company company) {
+    public void setCompany(Optional<Company> company) {
         this.company = company;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
@@ -299,7 +282,6 @@ public class Ship implements Serializable {
             ", firstName='" + getFirstName() + "'" +
             ", lastName='" + getLastName() + "'" +
             ", gender='" + getGender() + "'" +
-            ", email='" + getEmail() + "'" +
             ", phone='" + getPhone() + "'" +
             ", addressLine1='" + getAddressLine1() + "'" +
             ", addressLine2='" + getAddressLine2() + "'" +

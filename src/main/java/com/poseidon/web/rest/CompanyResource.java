@@ -1,11 +1,14 @@
 package com.poseidon.web.rest;
 import com.poseidon.domain.Company;
 import com.poseidon.service.CompanyService;
+import com.poseidon.service.dto.CompanyDTO;
 import com.poseidon.web.rest.errors.BadRequestAlertException;
+import com.poseidon.web.rest.errors.CompanyAlreadyUsedException;
 import com.poseidon.web.rest.util.HeaderUtil;
 import com.poseidon.web.rest.util.PaginationUtil;
 import com.poseidon.service.dto.CompanyCriteria;
 import com.poseidon.service.CompanyQueryService;
+import com.poseidon.web.rest.vm.ManagedUserVM;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -41,6 +44,20 @@ public class CompanyResource {
     public CompanyResource(CompanyService companyService, CompanyQueryService companyQueryService) {
         this.companyService = companyService;
         this.companyQueryService = companyQueryService;
+    }
+
+    /**
+     * POST /registerCompany
+     *
+     * @param companyDTO the companyDTO
+     * @param managedUserVM the managed user View Model
+     * @throws CompanyAlreadyUsedException 400 (Bad Request) if the Company Name is already used
+     */
+    @PostMapping("/register")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void registerCompany(@Valid @RequestBody CompanyDTO companyDTO, @Valid @RequestBody ManagedUserVM managedUserVM) {
+        log.debug("REST request to register Company : {}", companyDTO.getName());
+        companyService.registerCompany(companyDTO,managedUserVM);
     }
 
     /**

@@ -1,11 +1,16 @@
 package com.poseidon.web.rest;
 import com.poseidon.domain.Ship;
 import com.poseidon.service.ShipService;
+import com.poseidon.service.dto.CompanyDTO;
+import com.poseidon.service.dto.ShipDTO;
 import com.poseidon.web.rest.errors.BadRequestAlertException;
+import com.poseidon.web.rest.errors.CompanyAlreadyUsedException;
+import com.poseidon.web.rest.errors.ShipAlreadyUsedException;
 import com.poseidon.web.rest.util.HeaderUtil;
 import com.poseidon.web.rest.util.PaginationUtil;
 import com.poseidon.service.dto.ShipCriteria;
 import com.poseidon.service.ShipQueryService;
+import com.poseidon.web.rest.vm.ManagedUserVM;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -41,6 +46,20 @@ public class ShipResource {
     public ShipResource(ShipService shipService, ShipQueryService shipQueryService) {
         this.shipService = shipService;
         this.shipQueryService = shipQueryService;
+    }
+
+    /**
+     * POST /registerCompany
+     *
+     * @param shipDTO the companyDTO
+     * @param managedUserVM the managed user View Model
+     * @throws ShipAlreadyUsedException 400 (Bad Request) if the Company Name is already used
+     */
+    @PostMapping("/addShip")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void registerCompany(@Valid @RequestBody ShipDTO shipDTO, @Valid @RequestBody ManagedUserVM managedUserVM, @Valid @RequestBody String login) {
+        log.debug("REST request to add Ship : {}", shipDTO.getShipId());
+        shipService.registerShip(managedUserVM, shipDTO, login);
     }
 
     /**
