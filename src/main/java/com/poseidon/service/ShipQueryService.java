@@ -95,9 +95,6 @@ public class ShipQueryService extends QueryService<Ship> {
             if (criteria.getGender() != null) {
                 specification = specification.and(buildSpecification(criteria.getGender(), Ship_.gender));
             }
-            if (criteria.getEmail() != null) {
-                specification = specification.and(buildStringSpecification(criteria.getEmail(), Ship_.email));
-            }
             if (criteria.getPhone() != null) {
                 specification = specification.and(buildStringSpecification(criteria.getPhone(), Ship_.phone));
             }

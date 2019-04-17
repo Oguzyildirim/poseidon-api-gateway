@@ -86,9 +86,6 @@ public class CompanyQueryService extends QueryService<Company> {
             if (criteria.getName() != null) {
                 specification = specification.and(buildStringSpecification(criteria.getName(), Company_.name));
             }
-            if (criteria.getEmail() != null) {
-                specification = specification.and(buildStringSpecification(criteria.getEmail(), Company_.email));
-            }
             if (criteria.getPhone() != null) {
                 specification = specification.and(buildStringSpecification(criteria.getPhone(), Company_.phone));
             }

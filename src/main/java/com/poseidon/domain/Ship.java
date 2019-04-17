@@ -249,7 +249,7 @@ public class Ship implements Serializable {
         return this;
     }
 
-    public void setCompany(Optional<Company> company) {
+    public void setCompany(Company company) {
         this.company = company;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove

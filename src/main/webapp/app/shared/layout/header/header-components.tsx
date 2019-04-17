@@ -37,10 +37,21 @@ export const Brand = props => (
 
 export const Home = props => (
   <NavItem>
-    <NavLink tag={Link} to="/" className="d-flex align-items-center">
+    <NavLink tag={Link} to="/homeship" className="d-flex align-items-center">
       <FontAwesomeIcon icon="home" />
       <span>
         <Translate contentKey="global.menu.home">Home</Translate>
+      </span>
+    </NavLink>
+  </NavItem>
+);
+
+export const Cart = props => (
+  <NavItem>
+    <NavLink tag={Link} to="/entity/order-item" className="d-flex align-items-center">
+      <FontAwesomeIcon icon="opencart" />
+      <span>
+        <Translate contentKey="global.menu.cart">Cart</Translate>
       </span>
     </NavLink>
   </NavItem>

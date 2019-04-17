@@ -70,7 +70,7 @@ public class ShipService {
         Optional<User> companyUser = userRepository.findOneByLogin(login);
         Optional<Company> shipCompany = (Optional<Company>) companyRepository.findOneByUser(companyUser);
 
-        newShip.setCompany(shipCompany);
+        //newShip.setCompany(shipCompany);
         newShip.setShipId(shipDTO.getShipId());
         newShip.setPhone(shipDTO.getPhone());
         log.debug("Created Information for Ship: {}", newShip);

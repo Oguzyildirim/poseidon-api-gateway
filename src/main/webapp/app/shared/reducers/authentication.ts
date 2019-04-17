@@ -127,6 +127,11 @@ export const login = (username, password, rememberMe = false) => async (dispatch
     }
   }
   await dispatch(getSession());
+  const { account } = getState().authentication;
+  console.log(account.authorities);
+  if (account.authorities == 'ROLE_USER') {
+    history.go('/homeship');
+  }
 };
 
 export const clearAuthToken = () => {
