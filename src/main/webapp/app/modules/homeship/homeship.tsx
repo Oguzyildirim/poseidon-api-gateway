@@ -33,9 +33,11 @@ export class HomeShip extends React.Component<IHomeShipProp> {
             </Alert>
           </div>
           <div className="wrapper">
-            <button type="button" className="btn btn-primary">
-              Search Product
-            </button>
+            <Link to="/search-product" className="d-flex align-items-center">
+              <button type="button" className="btn btn-primary">
+                Search Product
+              </button>
+            </Link>
           </div>
         </Col>
         <Col md="3" className="pad">
