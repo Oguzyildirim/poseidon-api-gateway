@@ -1,0 +1,34 @@
+{
+  "poseidonApiGatewayApp": {
+    "ship": {
+      "home": {
+        "title": "Ships",
+        "createLabel": "Create a new Ship",
+        "createOrEditLabel": "Create or edit a Ship",
+        "search": "Search for Ship"
+      },
+      "created": "A new Ship is created with identifier {{ param }}",
+      "updated": "A Ship is updated with identifier {{ param }}",
+      "deleted": "A Ship is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Ship {{ id }}?"
+      },
+      "detail": {
+        "title": "Ship"
+      },
+      "shipId": "Ship Id",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "gender": "Gender",
+      "email": "Email",
+      "phone": "Phone",
+      "addressLine1": "Address Line 1",
+      "addressLine2": "Address Line 2",
+      "city": "City",
+      "country": "Country",
+      "user": "User",
+      "order": "Order",
+      "company": "Company"
+    }
+  }
+}

@@ -13,9 +13,6 @@ const adminMenuItems = (
     <DropdownItem tag={Link} to="/admin/user-management">
       <FontAwesomeIcon icon="user" fixedWidth /> <Translate contentKey="global.menu.admin.userManagement">User management</Translate>
     </DropdownItem>
-    <DropdownItem tag={Link} to="/admin/tracker">
-      <FontAwesomeIcon icon="eye" fixedWidth /> <Translate contentKey="global.menu.admin.tracker">User tracker</Translate>
-    </DropdownItem>
     <DropdownItem tag={Link} to="/admin/metrics">
       <FontAwesomeIcon icon="tachometer-alt" fixedWidth /> <Translate contentKey="global.menu.admin.metrics">Metrics</Translate>
     </DropdownItem>

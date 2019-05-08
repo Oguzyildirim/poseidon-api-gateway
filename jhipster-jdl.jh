@@ -1,0 +1,82 @@
+
+entity Product {
+	  levelOne String
+      levelTwo String
+      levelThree String
+      partNo String
+      description String
+      uom String
+      mtmlUom String
+      explanation String
+      picture String
+      information String
+}
+
+
+entity ProductCategory {
+    levelOne String
+    levelTwo String
+    levelThree String
+}
+entity Company {
+  name String required,
+  email String required pattern(/^[^@\s]+@[^@\s]+\.[^@\s]+$/),
+  phone String required,
+  addressLine1 String,
+  addressLine2 String,
+  city String,
+  country String
+}
+entity Ship {
+  shipId BigDecimal required,
+  firstName String,
+  lastName String,
+  gender Gender,
+  email String required pattern(/^[^@\s]+@[^@\s]+\.[^@\s]+$/),
+  phone String required,
+  addressLine1 String,
+  addressLine2 String,
+  city String,
+  country String
+}
+entity ProductOrder {
+  placedDate Instant required,
+  status OrderStatus required,
+  code String required
+}
+entity OrderItem {
+  quantity Integer required min(0)
+}
+
+enum Gender {
+  MALE,
+  FEMALE,
+  OTHER
+}
+
+enum OrderStatus {
+  COMPLETED,
+  PENDING,
+  CANCELLED
+}
+
+relationship OneToOne {
+  Company{user(login) required} to User,
+  Ship{user(login) required} to User
+}
+relationship OneToMany {
+  Company{ship} to Ship{company(email) required},
+  Ship{order} to ProductOrder{ship(email) required},
+  ProductOrder{orderItem} to OrderItem{order(code) required},
+  ProductCategory{product} to Product{productCategory(levelOne)}
+}
+
+relationship ManyToOne {
+    OrderItem{product(partNo) required} to Product
+}
+
+
+
+paginate * with pagination
+service * with serviceClass
+dto * with mapstruct

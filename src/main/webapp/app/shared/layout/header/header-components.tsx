@@ -21,7 +21,7 @@ export const NavDropdown = props => (
 
 export const BrandIcon = props => (
   <div {...props} className="brand-icon">
-    <img src="content/images/logo-jhipster.png" alt="Logo" />
+    <img src="content/images/posLogo.png" alt="Logo" />
   </div>
 );
 
@@ -29,7 +29,7 @@ export const Brand = props => (
   <NavbarBrand tag={Link} to="/" className="brand-logo">
     <BrandIcon />
     <span className="brand-title">
-      <Translate contentKey="global.title">PoseidonAPIGateway</Translate>
+      <Translate contentKey="global.title">Apigateway</Translate>
     </span>
     <span className="navbar-version">{appConfig.VERSION}</span>
   </NavbarBrand>
@@ -37,10 +37,21 @@ export const Brand = props => (
 
 export const Home = props => (
   <NavItem>
-    <NavLink tag={Link} to="/" className="d-flex align-items-center">
+    <NavLink tag={Link} to="/homeship" className="d-flex align-items-center">
       <FontAwesomeIcon icon="home" />
       <span>
         <Translate contentKey="global.menu.home">Home</Translate>
+      </span>
+    </NavLink>
+  </NavItem>
+);
+
+export const Cart = props => (
+  <NavItem>
+    <NavLink tag={Link} to="entity/order-item" className="d-flex align-items-center">
+      <FontAwesomeIcon icon="opencart" />
+      <span>
+        <Translate contentKey="global.menu.cart">Cart</Translate>
       </span>
     </NavLink>
   </NavItem>
